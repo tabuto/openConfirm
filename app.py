@@ -23,10 +23,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+	testDBConnection()
 	return "Hello, World!"
 
 
 def testDBConnection():
+	print 'try db connection....',hostname,username,password,database
 	myConnection = pgdb.connect( host=hostname, user=username, password=password, dbname=database )
 	myConnection.close()
 	print 'DB Connection ok'
