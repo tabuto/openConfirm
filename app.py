@@ -10,7 +10,7 @@ DATABASE connection
 
 from flask import Flask
 from flask.ext.restful import Api, Resource
-import pgdb
+import psycopg2
 import os
 
 hostname = 'postgresql'
@@ -29,7 +29,7 @@ def index():
 
 def testDBConnection():
 	print 'try db connection....',hostname,username,password,database
-	myConnection = pgdb.connect( host=hostname, user=username, password=password, dbname=database )
+	myConnection = psycopg2.connect( host=hostname, user=username, password=password, dbname=database )
 	myConnection.close()
 	print 'DB Connection ok'
 
